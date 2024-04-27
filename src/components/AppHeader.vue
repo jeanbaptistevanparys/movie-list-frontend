@@ -3,10 +3,13 @@
     <RouterLink to="/">
       <h1>MovieDB</h1>
     </RouterLink>
-    <RouterLink v-if="userName" :to="{ path: `/profile/${userName}` }" class="avatar">
-      {{ userName.substring(0, 1).toUpperCase() }}
-    </RouterLink>
-    <RouterLink v-else :to="{ name: `login` }" class="login"> Login </RouterLink>
+    <div v-if="userName">
+      <button @click="logout" class="button">Logout</button>
+      <RouterLink :to="{ path: `/profile/${userName}` }" class="avatar">
+        {{ userName.substring(0, 1).toUpperCase() }}
+      </RouterLink>
+    </div>
+    <RouterLink v-else :to="{ name: `login` }" class="button"> Login </RouterLink>
   </header>
 </template>
 <script>
@@ -19,6 +22,13 @@ export default {
       userName: localStorage.getItem('userName'),
     };
   },
+  methods: {
+    logout() {
+      localStorage.removeItem('userName');
+      localStorage.removeItem('token');
+      this.router.push({ name: 'login' });
+    },
+  },
 };
 </script>
 <style scoped>
@@ -26,6 +36,11 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+}
+
+header div {
+  display: flex;
+  gap: 1rem;
 }
 
 a {
@@ -52,7 +67,7 @@ h1 {
   user-select: none;
 }
 
-.login {
+.button {
   font-size: 1rem;
   font-weight: bold;
   color: var(--color-green);

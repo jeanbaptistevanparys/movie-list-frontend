@@ -54,8 +54,14 @@ npm run dev
 Clone de client en installeer dependencies
 
 ```sh
-git clone git@github.com:jeanbaptistevanparys/goao-client.git
-cd goao-client
+git clone git@github.com:jeanbaptistevanparys/movie-list-frontend.git
+```
+
+```sh
+cd movie-list-frontend
+```
+
+```sh
 npm install
 ```
 
