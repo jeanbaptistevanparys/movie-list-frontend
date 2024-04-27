@@ -38,6 +38,7 @@ npx prisma migrate dev
 ```
 
 Vraag een OMDb API key aan
+
 1. Ga naar https://www.omdbapi.com/apikey.aspx
 2. Klik op FREE, vul in en submit
 3. Ga naar je email inbox en activeer de API key
@@ -71,7 +72,7 @@ Start de client
 npm run dev
 ```
 
-## 1  Starten met Vue
+## 1 Starten met Vue
 
 Nieuwe file `HomeView.vue` in `views/`
 
@@ -80,16 +81,16 @@ Nieuwe file `HomeView.vue` in `views/`
   <p>Hello World!</p>
 </template>
 <script>
-export default {
-  name: 'HomeView',
-};
+  export default {
+    name: 'HomeView',
+  };
 </script>
 <style scoped>
-/* hier komt de css */
+  /* hier komt de css */
 </style>
 ```
 
-Nieuwe route in `router/index.js` 
+Nieuwe route in `router/index.js`
 
 ```js
     {
@@ -102,10 +103,10 @@ Nieuwe route in `router/index.js`
 Voeg toe in `HomeView.vue` binnen de `template` tags
 
 ```html
-  <main>
-    <h2>Search movies</h2>
-    <input type="text" v-model="filter" @input="loadMovies" placeholder="Movie name" />
-  </main>
+<main>
+  <h2>Search movies</h2>
+  <input type="text" v-model="filter" @input="loadMovies" placeholder="Movie name" />
+</main>
 ```
 
 Voeg toe in `HomeView.vue` binnen de `script` tags
@@ -159,7 +160,13 @@ input {
 }
 ```
 
-## 2  Components
+Oplossing
+
+```sh
+git checkout 1-starten-met-vue
+```
+
+## 2 Components
 
 Voeg toe in `HomeView.vue` binnen de `script` tags voor de `export default`
 
@@ -170,21 +177,21 @@ import AppHeader from '@/components/AppHeader.vue';
 Voeg toe in `HomeView.vue` binnen de `script` tags als option in `export default`
 
 ```js
-  components: {
-    AppHeader
-  }
+components: {
+  AppHeader;
+}
 ```
 
 Voeg `<AppHeader />` toe in `HomeView.vue` binnen de `template` tags voor de `main` tags
 
 ```html
-  <AppHeader />
+<AppHeader />
 ```
 
 Voeg `VMovie` toe in de components option en import het
 
 ```js
-import VMovie from '@/components/VMovie.vue'
+import VMovie from '@/components/VMovie.vue';
 ```
 
 ```js
@@ -197,9 +204,9 @@ import VMovie from '@/components/VMovie.vue'
 Voeg toe in `HomeView.vue` binnen de `template` tags onder de `input` tags
 
 ```html
-    <div class="movies">
-      <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
-    </div>
+<div class="movies">
+  <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
+</div>
 ```
 
 Update de `data()` option in `HomeView.vue`
@@ -218,6 +225,18 @@ Update de `data()` option in `HomeView.vue`
       ],
     };
   },
+```
+
+Oplossing
+
+```sh
+git checkout 2-components
+```
+
+Oplossing
+
+```sh
+git checkout 2-components
 ```
 
 ## 3 Data Service
@@ -313,19 +332,24 @@ en in de `loadMovies` functie gaan we de loading state toepassen.
 Nu kunnen we de loading state gebruiken in de `template`
 
 ```html
-    <div v-if="loading" class="loading"></div>
-    <p v-else-if="this.movies.length === 0">No movies found</p>
-    <div v-else class="movies">
-      <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
-    </div>
+<div v-if="loading" class="loading"></div>
+<p v-else-if="this.movies.length === 0">No movies found</p>
+<div v-else class="movies">
+  <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
+</div>
 ```
-
 
 Profiat 🎉 nu heb je een loading state en een message als er geen films gevonden zijn.
 
+Oplossing
+
+```sh
+git checkout 3-data-service
+```
+
 ## 4 Dynamic routes
 
-Nieuwe route in `router/index.js` 
+Nieuwe route in `router/index.js`
 
 ```js
     {
@@ -375,6 +399,12 @@ Voeg nieuwe `mounted()` option toe in `MovieView.vue`
 
 Joepie 🎉 nu heb je een detail pagina voor de films en kan je de details van de film zien.
 
+Oplossing
+
+```sh
+git checkout 4-dynamic-routes
+```
+
 ## 5 Finishing touches
 
 ### Moustache syntax
@@ -382,8 +412,8 @@ Joepie 🎉 nu heb je een detail pagina voor de films en kan je de details van d
 Voeg toe in `ProfileView.vue` binnen de `main`
 
 ```html
-    <div class="avatar">{{ userName.substring(0, 1).toUpperCase() }}</div>
-    <h2>@{{ userName }}'s list</h2>
+<div class="avatar">{{ userName.substring(0, 1).toUpperCase() }}</div>
+<h2>@{{ userName }}'s list</h2>
 ```
 
 ### Emit
@@ -407,9 +437,8 @@ Update `removeMovie` in `VMovie.vue`
 Luister daar het event `reload` dat emit word naar de parrent `ProfileView.vue`
 
 ```html
-      <VMovie v-for="movie in movies" :movie="movie" @reload="loadMovies" :key="movie.id" />
+<VMovie v-for="movie in movies" :movie="movie" @reload="loadMovies" :key="movie.id" />
 ```
-
 
 ### Computed option
 
@@ -423,7 +452,7 @@ Voeg toe in `ProfileView.vue` binnen de `script` tags als option
   }
 ```
 
-Update deze if in de `template` tags  
+Update deze if in de `template` tags
 
 ```
     <p v-else-if="emptyResult">No movies found</p>
@@ -440,4 +469,10 @@ Voeg toe in `ProfileView.vue` binnen de `script` tags als option
       this.loadMovies(this.userName);
     }
   },
+```
+
+Oplossing
+
+```sh
+git checkout 5-finishing-touches
 ```
