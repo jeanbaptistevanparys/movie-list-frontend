@@ -220,7 +220,7 @@ Update de `data()` option in `HomeView.vue`
   },
 ```
 
-## 3 Date Service
+## 3 Data Service
 
 Nieuwe file `MovieService.js` in `services/`
 
@@ -260,7 +260,7 @@ Nu kunnen we de service gebruiken in de `loadMovies` functie
 ```js
     async loadMovies() {
       if (this.filter !== '') {
-        const response = await this.service.getMovies(this.filter);
+        const response = await this.movieService.getMovies(this.filter);
         const data = await response.json();
         if (response.status !== 200) {
           alert(data.error);
@@ -296,7 +296,7 @@ en in de `loadMovies` functie gaan we de loading state toepassen.
     async loadMovies() {
       this.loading = true;
       if (this.filter !== '') {
-        const response = await this.service.getMovies(this.filter);
+        const response = await this.movieService.getMovies(this.filter);
         const data = await response.json();
         if (response.status !== 200) {
           alert(data.error);
