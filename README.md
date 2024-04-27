@@ -316,7 +316,7 @@ Nu kunnen we de loading state gebruiken in de `template`
     <div v-if="loading" class="loading"></div>
     <p v-else-if="this.movies.length === 0">No movies found</p>
     <div v-else class="movies">
-      <VMovie v-for="movie in movies" :movie="movie" />
+      <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
     </div>
 ```
 
