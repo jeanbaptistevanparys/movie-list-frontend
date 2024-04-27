@@ -220,7 +220,7 @@ Update de `data()` option in `HomeView.vue`
   },
 ```
 
-## 3 Date Service
+## 3 Data Service
 
 Nieuwe file `MovieService.js` in `services/`
 
@@ -260,7 +260,7 @@ Nu kunnen we de service gebruiken in de `loadMovies` functie
 ```js
     async loadMovies() {
       if (this.filter !== '') {
-        const response = await this.service.getMovies(this.filter);
+        const response = await this.movieService.getMovies(this.filter);
         const data = await response.json();
         if (response.status !== 200) {
           alert(data.error);
@@ -296,7 +296,7 @@ en in de `loadMovies` functie gaan we de loading state toepassen.
     async loadMovies() {
       this.loading = true;
       if (this.filter !== '') {
-        const response = await this.service.getMovies(this.filter);
+        const response = await this.movieService.getMovies(this.filter);
         const data = await response.json();
         if (response.status !== 200) {
           alert(data.error);
@@ -313,12 +313,11 @@ en in de `loadMovies` functie gaan we de loading state toepassen.
 Nu kunnen we de loading state gebruiken in de `template`
 
 ```html
-  <div v-if="loading" class="loading"></div>
+    <div v-if="loading" class="loading"></div>
     <p v-else-if="this.movies.length === 0">No movies found</p>
     <div v-else class="movies">
-      <VMovie v-for="movie in movies" :movie="movie" />
+      <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
     </div>
-  <div>
 ```
 
 
@@ -353,10 +352,10 @@ Voeg toe in `MovieService.js`
   }
 ```
 
-Voeg toe in `data()` option in `MovieView.vue`
+Voeg toe in `data()` in `MovieView.vue`
 
 ```js
-      id: this.$route.params.id
+      id: this.$route.params.id,
 ```
 
 Voeg nieuwe `mounted()` option toe in `MovieView.vue`
