@@ -233,12 +233,6 @@ Oplossing
 git checkout 2-components
 ```
 
-Oplossing
-
-```sh
-git checkout 2-components
-```
-
 ## 3 Data Service
 
 Nieuwe file `MovieService.js` in `services/`
