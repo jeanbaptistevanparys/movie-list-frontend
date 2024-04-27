@@ -72,6 +72,7 @@ h1 {
   font-weight: bold;
   color: var(--color-green);
   border: 2px solid var(--color-green);
+  background-color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
