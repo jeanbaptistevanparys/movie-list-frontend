@@ -55,7 +55,13 @@ Clone de client en installeer dependencies
 
 ```sh
 git clone git@github.com:jeanbaptistevanparys/goao-client.git
+```
+
+```sh
 cd goao-client
+```
+
+```sh
 npm install
 ```
 
