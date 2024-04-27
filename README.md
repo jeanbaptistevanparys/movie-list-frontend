@@ -159,6 +159,12 @@ input {
 }
 ```
 
+Oplossing
+
+```sh
+git checkout 1-starten-met-vue
+```
+
 ## 2  Components
 
 Voeg toe in `HomeView.vue` binnen de `script` tags voor de `export default`
@@ -218,6 +224,12 @@ Update de `data()` option in `HomeView.vue`
       ],
     };
   },
+```
+
+Oplossing
+
+```sh
+git checkout 2-components
 ```
 
 ## 3 Data Service
@@ -323,6 +335,12 @@ Nu kunnen we de loading state gebruiken in de `template`
 
 Profiat 🎉 nu heb je een loading state en een message als er geen films gevonden zijn.
 
+Oplossing
+
+```sh
+git checkout 3-data-service
+```
+
 ## 4 Dynamic routes
 
 Nieuwe route in `router/index.js` 
@@ -374,6 +392,12 @@ Voeg nieuwe `mounted()` option toe in `MovieView.vue`
 ```
 
 Joepie 🎉 nu heb je een detail pagina voor de films en kan je de details van de film zien.
+
+Oplossing
+
+```sh
+git checkout 4-dynamic-routes
+```
 
 ## 5 Finishing touches
 
@@ -440,4 +464,10 @@ Voeg toe in `ProfileView.vue` binnen de `script` tags als option
       this.loadMovies(this.userName);
     }
   },
+```
+
+Oplossing
+
+```sh
+git checkout 6-finishing-touches
 ```
