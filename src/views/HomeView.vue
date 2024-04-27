@@ -1,15 +1,33 @@
 <template>
+  <AppHeader />
   <main>
     <h2>Search movies</h2>
     <input type="text" v-model="filter" @input="loadMovies" placeholder="Movie name" />
+    <div class="movies">
+      <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
+    </div>
   </main>
 </template>
 <script>
+import AppHeader from '@/components/AppHeader.vue';
+import VMovie from '@/components/VMovie.vue';
 export default {
   name: 'HomeView',
+  components: {
+    AppHeader,
+    VMovie,
+  },
   data() {
     return {
       filter: '',
+      movies: [
+        {
+          movieId: 'tt1160419',
+          title: 'Dune',
+          poster:
+            'https://m.media-amazon.com/images/M/MV5BMDQ0NjgyN2YtNWViNS00YjA3LTkxNDktYzFkZTExZGMxZDkxXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg',
+        },
+      ],
     };
   },
   methods: {
