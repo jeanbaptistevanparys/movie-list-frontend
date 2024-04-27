@@ -104,7 +104,7 @@ Voeg toe in `HomeView.vue` binnen de `template` tags
 ```html
   <main>
     <h2>Search movies</h2>
-    <input type="text" v-model="filter" @input="loadMovies" placeholder="Movie name"/>
+    <input type="text" v-model="filter" @input="loadMovies" placeholder="Movie name" />
   </main>
 ```
 
@@ -198,7 +198,7 @@ Voeg toe in `HomeView.vue` binnen de `template` tags onder de `input` tags
 
 ```html
     <div class="movies">
-      <VMovie v-for="movie in movies" :movie="movie"/>
+      <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
     </div>
 ```
 
