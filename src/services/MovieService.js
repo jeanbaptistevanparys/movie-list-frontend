@@ -13,4 +13,17 @@ export default class MovieService {
 
     return response;
   }
+
+  async getMovie(id) {
+    let fullUrl = _api + '/movie/' + id;
+
+    const response = await fetch(fullUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    return response;
+  }
 }
