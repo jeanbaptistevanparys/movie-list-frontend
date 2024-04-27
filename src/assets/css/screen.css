@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200;400&family=Rubik&display=swap');
+body {
+  font-family: 'Lexend', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --color-gray: #efefef;
+  --color-green: #01bf9b;
+  --color-red: #df5543;
+}
+
+.loading {
+  background-image: url('../img/loading.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  background-size: 2rem;
+  height: 2rem;
+}
