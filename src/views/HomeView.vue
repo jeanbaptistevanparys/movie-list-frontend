@@ -3,6 +3,8 @@
   <main>
     <h2>Search movies</h2>
     <input type="text" v-model="filter" @input="loadMovies" placeholder="Movie name" />
+    <div v-if="loading" class="loading"></div>
+    <p v-else-if="this.movies.length === 0">No movies found</p>
     <div class="movies">
       <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
     </div>
@@ -11,6 +13,7 @@
 <script>
 import AppHeader from '@/components/AppHeader.vue';
 import VMovie from '@/components/VMovie.vue';
+import MovieService from '@/services/MovieService.js';
 export default {
   name: 'HomeView',
   components: {
@@ -20,19 +23,26 @@ export default {
   data() {
     return {
       filter: '',
-      movies: [
-        {
-          movieId: 'tt1160419',
-          title: 'Dune',
-          poster:
-            'https://m.media-amazon.com/images/M/MV5BMDQ0NjgyN2YtNWViNS00YjA3LTkxNDktYzFkZTExZGMxZDkxXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg',
-        },
-      ],
+      movies: [],
+      movieService: new MovieService(),
+      loading: false,
     };
   },
   methods: {
-    loadMovies() {
-      console.log(this.filter);
+    async loadMovies() {
+      this.loading = true;
+      if (this.filter !== '') {
+        const response = await this.movieService.getMovies(this.filter);
+        const data = await response.json();
+        if (response.status !== 200) {
+          alert(data.error);
+        } else {
+          this.movies = data;
+        }
+      } else {
+        this.movies = [];
+      }
+      this.loading = false;
     },
   },
 };
