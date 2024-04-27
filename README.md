@@ -352,12 +352,6 @@ Voeg toe in `MovieService.js`
   }
 ```
 
-Voeg toe in `data()` option in `MovieView.vue`
-
-```js
-      id: this.$route.params.id
-```
-
 Voeg nieuwe `mounted()` option toe in `MovieView.vue`
 
 ```js
