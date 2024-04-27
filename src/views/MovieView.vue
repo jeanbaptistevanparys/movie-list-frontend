@@ -45,7 +45,6 @@ export default {
       score: null,
       newScore: null,
       userName: localStorage.getItem('userName'),
-      id: this.$route.params.id,
     };
   },
   methods: {
@@ -86,16 +85,6 @@ export default {
         this.score = null;
       }
     },
-  },
-  async mounted() {
-    const response = await this.MovieService.getMovie(this.id);
-    const data = await response.json();
-    if (response.status !== 200) {
-      alert(data.error);
-    } else {
-      this.movie = data;
-    }
-    this.getUserMovie();
   },
 };
 </script>
