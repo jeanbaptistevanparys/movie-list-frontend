@@ -45,7 +45,7 @@ export default {
       score: null,
       newScore: null,
       userName: localStorage.getItem('userName'),
-      id: this.$route.params.id,
+      id: this.$route.params.movieId,
     };
   },
   methods: {
