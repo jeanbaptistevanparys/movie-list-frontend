@@ -1,10 +1,12 @@
 <template>
   <AppHeader />
   <main>
+    <div class="avatar">{{ userName.substring(0, 1).toUpperCase() }}</div>
+    <h2>@{{ userName }}'s list</h2>
     <div v-if="loading" class="loading"></div>
-    <p v-else-if="this.movies.length === 0">No movies found</p>
+    <p v-else-if="emptyResult">No movies found</p>
     <div v-else class="movies">
-      <VMovie v-for="movie in movies" :movie="movie" :key="movie.id" />
+      <VMovie v-for="movie in movies" :movie="movie" @reload="loadMovies" :key="movie.id" />
     </div>
   </main>
 </template>
@@ -40,6 +42,17 @@ export default {
         this.movies = data;
       }
       this.loading = false;
+    },
+  },
+  computed: {
+    emptyResult() {
+      return this.movies.length === 0;
+    },
+  },
+  watch: {
+    '$route.params.username'(newUsername) {
+      this.userName = newUsername;
+      this.loadMovies(this.userName);
     },
   },
 };

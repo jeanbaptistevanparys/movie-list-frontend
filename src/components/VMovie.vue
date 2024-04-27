@@ -56,6 +56,8 @@ export default {
       );
       if (response.status === 401) {
         this.$router.push({ name: 'login' });
+      } else if (response.status === 204) {
+        await this.$emit('reload', this.movie.userName);
       }
     },
   },
