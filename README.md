@@ -74,6 +74,8 @@ npm run dev
 
 ## 1 Starten met Vue
 
+### 1.1
+
 Nieuwe file `HomeView.vue` in `views/`
 
 ```html
@@ -99,6 +101,8 @@ Nieuwe route in `router/index.js`
       component: () => import('../views/HomeView.vue'),
     },
 ```
+
+### 1.2
 
 Voeg toe in `HomeView.vue` binnen de `template` tags
 
@@ -168,6 +172,8 @@ git checkout 1-starten-met-vue
 
 ## 2 Components
 
+### 2.1
+
 Voeg toe in `HomeView.vue` binnen de `script` tags voor de `export default`
 
 ```js
@@ -187,6 +193,8 @@ Voeg `<AppHeader />` toe in `HomeView.vue` binnen de `template` tags voor de `ma
 ```html
 <AppHeader />
 ```
+
+### 2.2
 
 Voeg `VMovie` toe in de components option en import het
 
@@ -235,6 +243,8 @@ git checkout 2-components
 
 ## 3 Data Service
 
+### 3.1
+
 Nieuwe file `MovieService.js` in `services/`
 
 ```js
@@ -255,6 +265,8 @@ export default class MovieService {
   }
 }
 ```
+
+### 3.2
 
 Voeg `MovieService` toe in de data option en import het
 
@@ -288,7 +300,7 @@ Nu kunnen we de service gebruiken in de `loadMovies` functie
 
 Hoera 🎉 nu heb je echte films op je schermpje en kan je zelf zoeken op films.
 
-### Loading en feedback
+### 3.3 Loading en feedback
 
 Voeg `loading` als `false` toe in de data option
 
@@ -343,7 +355,9 @@ git checkout 3-data-service
 
 ## 4 Dynamic routes
 
-Nieuwe route in `router/index.js`
+### 4.1
+
+Nieuwe route in `router/index.js` 
 
 ```js
     {
@@ -369,6 +383,8 @@ Voeg toe in `MovieService.js`
     return response;
   }
 ```
+
+### 4.2
 
 Voeg toe in `data()` in `MovieView.vue`
 
@@ -401,7 +417,7 @@ git checkout 4-dynamic-routes
 
 ## 5 Finishing touches
 
-### Moustache syntax
+### 5.1 Moustache syntax
 
 Voeg toe in `ProfileView.vue` binnen de `main`
 
@@ -410,7 +426,7 @@ Voeg toe in `ProfileView.vue` binnen de `main`
 <h2>@{{ userName }}'s list</h2>
 ```
 
-### Emit
+### 5.2 Emit
 
 Update `removeMovie` in `VMovie.vue`
 
@@ -434,7 +450,8 @@ Luister daar het event `reload` dat emit word naar de parrent `ProfileView.vue`
 <VMovie v-for="movie in movies" :movie="movie" @reload="loadMovies" :key="movie.id" />
 ```
 
-### Computed option
+
+### 5.3 Computed option
 
 Voeg toe in `ProfileView.vue` binnen de `script` tags als option
 
@@ -452,7 +469,7 @@ Update deze if in de `template` tags
     <p v-else-if="emptyResult">No movies found</p>
 ```
 
-### Watch option
+### 5.4 Watch option
 
 Voeg toe in `ProfileView.vue` binnen de `script` tags als option
 
