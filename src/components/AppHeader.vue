@@ -1,7 +1,7 @@
 <template>
   <header>
     <RouterLink to="/">
-      <h1>MovieDB</h1>
+      <h1>Movie List</h1>
     </RouterLink>
     <div v-if="userName">
       <button @click="logout" class="button">Logout</button>
