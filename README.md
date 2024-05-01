@@ -465,7 +465,7 @@ Voeg toe in `ProfileView.vue` binnen de `script` tags als option
 
 Update deze if in de `template` tags  
 
-```
+```html
     <p v-else-if="emptyResult">No movies found</p>
 ```
 
@@ -485,5 +485,5 @@ Voeg toe in `ProfileView.vue` binnen de `script` tags als option
 Oplossing
 
 ```sh
-git checkout 6-finishing-touches
+git checkout 5-finishing-touches
 ```
