@@ -12,7 +12,7 @@
 Clone de server en installeer dependencies
 
 ```sh
-git clone git@github.com:jarivalentine/movie-list-backend.git
+git clone https://github.com/jarivalentine/movie-list-backend.git
 ```
 
 ```sh
@@ -54,7 +54,7 @@ npm run dev
 Clone de client en installeer dependencies
 
 ```sh
-git clone git@github.com:jeanbaptistevanparys/movie-list-frontend.git
+git clone https://github.com/jeanbaptistevanparys/movie-list-frontend.git
 ```
 
 ```sh
