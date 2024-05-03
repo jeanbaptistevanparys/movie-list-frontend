@@ -16,7 +16,7 @@ git clone https://github.com/jarivalentine/movie-list-backend.git
 ```
 
 ```sh
-copy movie-list-backend
+cd movie-list-backend
 ```
 
 ```sh
@@ -26,7 +26,7 @@ npm install
 Database setup
 
 ```sh
-cp example.env .env
+copy example.env .env
 ```
 
 Maak een nieuwe database aan met naam `movielist` 
