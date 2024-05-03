@@ -16,7 +16,7 @@ git clone https://github.com/jarivalentine/movie-list-backend.git
 ```
 
 ```sh
-cd movie-list-backend
+copy movie-list-backend
 ```
 
 ```sh
@@ -29,12 +29,10 @@ Database setup
 cp example.env .env
 ```
 
-```sh
-docker compose up -d
-```
+Maak een nieuwe database aan met naam `movielist` 
 
 ```sh
-npx prisma migrate dev
+npx prisma migrate dev --name init
 ```
 
 Vraag een OMDb API key aan
